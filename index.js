@@ -48,7 +48,37 @@ app.get('/listagemCategorias', (req, res)=>{
     });
 });
 
+/*EDITAR*/
+app.get('/editarCategoria/:cod_categoria', (req, res)=>{
 
+    let {cod_categoria} = req.params;
+
+    urlListarCategoriaPK = `http://localhost:3000/listarCategoriaPK/${cod_categoria}`;
+
+    // console.log("COD_CATEGORIA: " + cod_categoria); 
+
+    axios.get(urlListarCategoriaPK)
+        .then((response)=>{
+            let categoria = response.data;
+            //console.log(categoria.data);
+            res.render('categoria/editarCategoria.ejs', {categoria});
+
+        });
+
+});
+
+app.post('/editarCategoria', (req, res)=>{
+
+    //console.log(req.body);
+
+    let urlEditar = 'http://localhost:3000/alterarCategoria';
+
+    axios.put(urlEditar, req.body)
+        .then((response)=>{
+            res.send('DADO ALTERADO');
+        });
+
+});
 
 /* FIM DAS ROTAS DE CATEGORIA */
 
