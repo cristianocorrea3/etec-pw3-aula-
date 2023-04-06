@@ -69,16 +69,33 @@ app.get('/editarCategoria/:cod_categoria', (req, res)=>{
 
 app.post('/editarCategoria', (req, res)=>{
 
-    //console.log(req.body);
+    // console.log(req.body);
+    // res.send('DADO ALTERADO');
 
     let urlEditar = 'http://localhost:3000/alterarCategoria';
 
     axios.put(urlEditar, req.body)
         .then((response)=>{
-            res.send('DADO ALTERADO');
+            res.redirect('/listagemCategorias');
         });
 
 });
+
+app.get('/excluirCategoria/:cod_categoria', (req, res)=>{
+   console.log(req.params);
+
+    let {cod_categoria} = req.params;
+
+    const urlExcluirCAtegoria = `http://localhost:3000/excluirCategoria/${cod_categoria}`;
+
+    axios.delete(urlExcluirCAtegoria)
+    .then((response)=>{
+        res.redirect('/listagemCategorias');
+    });
+    
+});
+
+
 
 /* FIM DAS ROTAS DE CATEGORIA */
 
