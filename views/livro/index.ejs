@@ -1,0 +1,57 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+
+    <div class="container">
+
+        <%- include('../partials/menu.ejs') %>
+
+        <div class="card">
+
+            <div class="card-header">
+                <h3>CADASTRO DE LIVRO</h3>
+            </div>
+
+            <div class="card-body">
+
+                <form action="http://localhost:3000/cadastrarLivro" 
+                    method="post" enctype="multipart/form-data">
+
+                    <label for="titulo"></label>
+                    <input class="form-control" type="text" 
+                    name="titulo" id="titulo"
+                    placeholder="TITULO">
+
+                    <label for="preco"></label>
+                    <input class="form-control" type="text" 
+                    name="preco" id="preco"
+                    placeholder="PREÇO">
+
+                    <label for="detalhes"></label>
+                    <input class="form-control" type="text" 
+                    name="detalhes" id="detalhes"
+                    placeholder="DETALHES">
+
+                    <label for="imagem"></label>
+                    <input class="form-control" type="file" 
+                    name="imagem" id="imagem">
+
+                    <label for="imagem"></label>
+                    <input class="form-control" type="file" 
+                    name="imagem" id="imagem">
+
+                    <button class="btn btn-success mt-2">CADASTRAR</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<%- include('../partials/footer.ejs') %>
+
+</html>

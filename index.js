@@ -94,10 +94,15 @@ app.get('/excluirCategoria/:cod_categoria', (req, res)=>{
     });
     
 });
-
-
-
 /* FIM DAS ROTAS DE CATEGORIA */
+
+/* INICIO DAS ROTAS DE LIVRO */
+
+app.get('/livro', (req, res)=>{
+    res.render('livro/index');
+});
+
+/* FIM DAS ROTAS DE LIVRO */
 
 app.listen(3001, ()=>{
     console.log("SERVIDOR FRONTEND RODANDO EM - http://localhost:3001");
