@@ -1,0 +1,43 @@
+<%- include('../partials/header.ejs') %>
+
+    <div class="container">
+
+        <%- include('../partials/menu.ejs') %>
+
+        <div class="card">
+            <div class="card-header">LISTAGEM DE LIVROS</div>
+        </div>
+        
+        <%        
+            livros.forEach(livro=>{
+        %>
+
+            <div class="card mt-2 p-1">
+
+                <div class="card-body">
+                    <img 
+                        width="200" 
+                        src="http://localhost:3000/<%= livro.imagen_peq.replace('public', '') %>"
+                        alt="">
+                </div>
+
+                <div class="card-body">
+                    <%= livro.titulo %>
+                </div>
+
+                <div class="btn-group mr-2">
+                    <a href="/editarLivro/<%= livro.cod_livro %>" class="btn btn-success btn-sm mr-2 ml-2">EDITAR</a>
+                    <a href="/excluirLivro/<%= livro.cod_livro %>" class="btn btn-danger btn-sm mr-2 ml-2">EXCLUIR</a>
+                </div>
+
+            </div>
+        
+        <% }) %>
+
+    </div>
+
+</body>
+
+<%- include('../partials/footer.ejs') %>
+
+</html>
