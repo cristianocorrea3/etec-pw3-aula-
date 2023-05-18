@@ -98,8 +98,29 @@ app.get('/excluirCategoria/:cod_categoria', (req, res)=>{
 
 /* INICIO DAS ROTAS DE LIVRO */
 
+/* CADASTRO DE LIVROS */
 app.get('/livro', (req, res)=>{
-    res.render('livro/index');
+
+    const urlListarCategorias = 'http://localhost:3000/listarCategoria';
+
+    axios.get(urlListarCategorias)
+    .then((response)=>{
+        let categorias = response.data;
+        res.render('livro/index', {categorias}); 
+    });
+});
+
+/* LISTAGEM DE LIVROS */
+app.get('/listagemLivro', (req, res)=>{
+
+    const urlListarLivro = 'http://localhost:3000/listarLivro';
+
+    axios.get(urlListarLivro)
+    .then((response)=>{
+        let livros = response.data;
+        res.render('livro/listagemLivro', {livros}); 
+    });
+
 });
 
 /* FIM DAS ROTAS DE LIVRO */
